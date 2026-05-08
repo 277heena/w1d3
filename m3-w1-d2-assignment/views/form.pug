@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  - var data = data || {}
+
+  if errors
+    ul
+      each error in errors
+        li= error.msg
+
+  form(action='.' method='POST')
+    div
+      label(for='name') Name:
+      input(type='text' id='name' name='name' value=data.name)
+    div
+      label(for='email') Email:
+      input(type='email' id='email' name='email' value=data.email)
+    div
+      input(type='submit' value='Submit')
